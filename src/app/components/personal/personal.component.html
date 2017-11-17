@@ -1,0 +1,49 @@
+<h1 class="personal-info__label">Personal Information</h1>
+<div class="personal-info__container">
+  <mat-card>
+    <mat-tab-group selectedIndex={{currentFormIndex}}>
+      <mat-tab label="Personal">
+        <p>Personal info here</p>
+        <form [formGroup]="personalForm" (submit)="submit()">
+          <mat-form-field>
+              <input required matInput placeholder="Full Name" formControlName="name">
+              <mat-error *ngIf="personalForm.get('name').invalid">Please enter a name</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+              <input required matInput placeholder="Email" formControlName="email">
+              <mat-error *ngIf="personalForm.get('email').invalid">Please enter an email</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+              <input required type="tel" matInput placeholder="Phone number" formControlName="phone">
+              <mat-error *ngIf="personalForm.get('phone').invalid">Please enter a phone number</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+              <input required matInput [matDatepicker]="picker" placeholder="Date of birth" formControlName="dob">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+              <mat-error *ngIf="personalForm.get('dob').invalid">Please enter a date of birth</mat-error>
+          </mat-form-field>
+          <input type="submit" name="submit" hidden>
+        </form>
+      </mat-tab>
+      <mat-tab label="Location">
+        <p>Location info here</p>
+        <form [formGroup]="locationForm" (submit)="submit()">
+          <mat-form-field>
+              <input required matInput placeholder="Country" formControlName="country">
+              <mat-error *ngIf="locationForm.get('country').invalid">Please enter country name</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput placeholder="City" formControlName="city">
+              <mat-error *ngIf="locationForm.get('city').invalid">Please enter city name</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput placeholder="State" formControlName="state">
+          </mat-form-field>
+          <input type="submit" name="submit" hidden>
+        </form>
+      </mat-tab>
+    </mat-tab-group> 
+    <button mat-button (click)="submit()">Submit</button> 
+  </mat-card>
+</div>

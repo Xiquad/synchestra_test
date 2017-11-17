@@ -1,0 +1,11 @@
+<h1 class="generated__label">Generated Information</h1>
+<mat-card class="generated">
+      Hi my name is <span class="generated__name">{{personalData.name}}</span>. 
+      I was born on <span class="generated__dob">{{personalData.dob | date:'dd-MM-yyyy'}}</span>. 
+      I'm from  <span class="generated__city" *ngIf=personalData.city>{{personalData.city}},</span>
+                <span class="generated__state" *ngIf=personalData.state>{{personalData.state}},</span>
+                <span class="generated__country">{{personalData.country}}</span>.
+      You can contact me at <a class="generated__email" href="mailto:xiquad@gmail.com">{{personalData.email}}</a> 
+      or <a class="generated__phone" href="tel:+380633326771">{{personalData.phone}}</a>. <br><br>
+      <button mat-button routerLink="/">Back</button>
+</mat-card>
